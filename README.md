@@ -62,26 +62,6 @@ In late 2022 the platform rolled out engagement features (e.g., gamification and
   - Free 2021 vs 2022: **fail to reject** (no increase).  
   - Free 2022 US vs IN: **fail to reject** that US < IN (means: **73.07 vs 78.42**).
 
-## Mapping / Logic (from source to outputs)
-- **Workbook → Ranges**
-  - `Task 1 and 2`:  
-    - Paid block: `[student_id, paid, minutes_21, minutes_22]`  
-    - Free block: `[student_id, paid, minutes_21, minutes_22]`
-  - `Task 3`: four columns of minutes: **Paid_2021**, **Paid_2022**, **Free_2021**, **Free_2022**.
-  - `Task 5`: **Free_2022_US**, **Free_2022_IN**.
-- **Cohort Filter (Excel 365 example)**  
-  ```excel
-  =FILTER(minutes_21, (paid=1)*(minutes_21>=1)*(minutes_21<=100))
-## CI for the Mean
-```excel
-=AVERAGE(range) ± 1.96*STDEV.S(range)/SQRT(COUNTA(range))     // large-n normal approx
-// or:
-=AVERAGE(range) ± CONFIDENCE.NORM(0.05, STDEV.S(range), COUNTA(range))
-```
-## Welch’s t-test (left-tailed)
-```excel
-=T.TEST(range_2021, range_2022, 1, 3)   // tails=1, type=3 (unequal variances)
-```
 ## How I Built It
 
 Tools: Excel (Data Analysis ToolPak), dynamic arrays; cross-checked in Python (pandas) for reproducibility.
