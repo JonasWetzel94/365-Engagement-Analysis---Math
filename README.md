@@ -72,7 +72,6 @@ In late 2022 the platform rolled out engagement features (e.g., gamification and
 - **Cohort Filter (Excel 365 example)**  
   ```excel
   =FILTER(minutes_21, (paid=1)*(minutes_21>=1)*(minutes_21<=100))
-``
 ## CI for the Mean
 ```excel
 =AVERAGE(range) ± 1.96*STDEV.S(range)/SQRT(COUNTA(range))     // large-n normal approx
